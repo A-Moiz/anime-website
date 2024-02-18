@@ -66,8 +66,8 @@ nav a:active {
 header{
     text-align: center;
     background-color: #af1313;
-    height: 200px;
-    padding-top: 90px;
+    height: 180px;
+    padding-top: 100px;
 }
 
 header h1{
@@ -127,4 +127,22 @@ header h1{
     font-size: 20px;
     margin-bottom: 0;
     padding-bottom: 20px;
+}
+
+/* Footer: */
+
+.footer {
+    background-color: #af1313;
+}
+
+.footer a {
+    text-decoration: none;
+}
+
+.footer a p {
+    margin: 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 10px;
+    color: white;
 }
