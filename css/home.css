@@ -46,15 +46,15 @@ nav a::after {
     left: 0;
     bottom: 0;
     width: 100%;
-    height: 4px; /* Adjust the thickness of the bar as needed */
+    height: 4px; 
     background: #ddd;
-    transform: scaleX(0); /* Initial state, no width */
+    transform: scaleX(0);
     transform-origin: bottom right;
     transition: transform 0.3s ease;
 }
 
 nav a:hover::after {
-    transform: scaleX(1); /* Full width on hover */
+    transform: scaleX(1);
 }
 
 nav a:active {
@@ -139,10 +139,16 @@ header h1{
     text-decoration: none;
 }
 
-.footer a p {
+.footer a .back-to-top {
+    display: inline-block;
     margin: 0;
     padding-top: 20px;
     padding-bottom: 20px;
     padding-left: 10px;
     color: white;
+}
+
+.footer a p:hover {
+    color: black;
+    text-decoration: underline;
 }

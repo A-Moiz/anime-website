@@ -134,17 +134,70 @@ header h1{
 .animeList a {
     text-decoration: none;
     color: black;
-    padding-right: 90px;
+    padding-right: 100px;
+    padding-left: 20px;
+    font-size: 20px;
 }
 
 .animeList ul a:hover {
-    font-size: 30px;
+    font-size: 50px;
     color: blue;
 }
 
 /* Anime: */
 
 .banner-img {
+    position: relative;
+}
+
+.banner-img a {
+    text-decoration: none;
+    color: white;
+}
+
+.banner-img a p {
+    padding-left: 20px;
+}
+
+.banner-img a p:hover {
+    color: blue;
+    text-decoration: underline;
+}
+
+.anime-banner {
     width: 100%;
-    height: 1000px;
+    height: 100%;
+    padding-top: 10px;
+    /* object-fit: cover; */
+}
+
+.anime-title {
+    padding-top: 130px;
+    margin-top: 0;
+    padding-left: 20px;
+    text-align: center;
+    font-size: 50px;
+}
+
+/* Anime Info: */
+
+.anime-info {
+    background-color: coral;
+}
+
+.back-to-top {
+    text-align: center;
+}
+
+
+/* About Anime: */
+
+.about-anime {
+    padding: 20px;
+    border: ridge crimson 10px;
+    width: 75%;
+    margin: auto;
+    background-color: #e4cd05;
+    color: black;
+    font-size: 20px;
 }
