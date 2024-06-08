@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime</title>
+    <link rel="stylesheet" href="css/quiz.css">
+    <link rel="shortcut icon" href="images/web_logo.png">
+</head>
+<body>
+
+    <!-- Navigation bar -->
+    <div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="gallery.html">Anime Gallery</a>
+            <a href="content.html">Anime Content</a>
+        </nav>
+    </div>
+
+    <!-- Header -->
+    <div>
+        <header>
+            <img src="images/logo.png" class="left_logo" alt="one piece logo">
+            <img src="images/logo.png" class="right_logo" alt="one piece logo">
+            <br>
+            <h1>Anime Quiz</h1>
+        </header>
+    </div>
+
+    <!-- Banner: -->
+    <div>
+        <img src="images/banner.gif" class="banner_img" alt="anime banner">
+    </div>
+
+    <!-- Quiz: -->
+    <div class="ruleBox">
+        <h2 class="ruleHeader">This is an Anime Quiz to check your basic knowledge of some of the popular Animes.</h2>
+        <br>
+        <div class="rules">
+            <p>Quiz Rules:</p>
+            <ul>
+                <li>Questions will appear once clicked on "Start Quiz"</li>
+                <li>Countdown will also begin once clicked on "Start Quiz"</li>
+                <li>Selected answers will automatically be sbmitted when time runs out</li>
+                <li>Enter a username and then select a difficulty</li>
+                <li>Difficulty:</li>
+                <ul>
+                    <li>Easy - 60 second time limit</li>
+                    <li>Intermediate - 20 second time limit</li>
+                    <li>Hard - 10 second time limit</li>
+                </ul>
+                <li>Correct answers = 2 points (green backgroud to question)</li>
+                <li>Incorrect answers = -1 point (red background to question)</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="quizInfo">
+        <p>Note: You must select a difficulty before starting the quiz.</p>
+        <p>You will get an alert at the end of the quiz displaying your performance. You will also be able to view your performance at the bottom of the page.</p>
+        <p>The background colour of the page will change to the following depending on your score:</p>
+        <br>
+        <ul>
+            <li>Red - Score is between -10 and 0</li>
+            <li>Amber - Score is between 0 and 10</li>
+            <li>Lightgreen - Score is between 10 and 20</li>
+            <li>Green - Score is 20 out of 20</li>
+        </ul>
+        <p>Good Luck!!!</p>
+    </div>
+
+    <!-- Username: -->
+    <div class="user_name_div">
+        <input type="text" id="username" placeholder="Enter a username" class="userNameInput">
+    </div>
+
+    <!-- Difficulty: -->
+    <div class="difficulty_div">
+        <input type="submit" value="Easy" class="difficulty_btn" onclick="easyDifficulty()">
+        <input type="submit" value="Intermediate" class="difficulty_btn" onclick="mediumDifficulty()">
+        <input type="submit" value="Hard" class="difficulty_btn" onclick="hardDifficulty()">
+    </div>
+
+     <!-- Difficulty selected -->
+     <div class="difficulty_selected_div">
+        <p>Difficulty Selected: <span id="difficulty_selected"></span></p>
+    </div>
+
+    <!-- Start Button: -->
+    <div class="start_btn_div">
+        <input type="button" value="Start Quiz" id="startQuiz" class="start_btn" onclick="revealQuiz(), startTimer()">
+    </div>
+
+    <!-- Quiz: -->
+    <div id="quizBackground">
+        <div class="quizQuestions">
+            <form id="quizForm" name="animeQuiz">
+                <div>
+                    <p id="question1">Q1. What year did the One Piece Anime air?</p>
+                    <input type="radio" name="q1" value="1998" id="choice-11">1998
+                    <input type="radio" name="q1" value="1999" id="choice-12">1999
+                    <input type="radio" name="q1" value="2000" id="choice-13">2000
+                </div>
+                <br>
+                <div>
+                    <p id="question2">Q2. Who is the main character in One Piece?</p>
+                    <input type="radio" name="q2" value="Zoro" id="choice-21">Zoro
+                    <input type="radio" name="q2" value="Nami" id="choice-22">Nami
+                    <input type="radio" name="q2" value="Luffy" id="choice-23">Luffy
+                </div>
+                <br>
+                <div>
+                    <p id="question3">Q3. Who was the first Straw Hat character shown in the Anime?</p>
+                    <input type="radio" name="q3" value="Nami" id="choice-31">Nami
+                    <input type="radio" name="q3" value="Sanji" id="choice-32">Sanji
+                    <input type="radio" name="q3" value="Luffy" id="choice-33">Luffy
+                </div>
+                <br>
+                <div>
+                    <p id="question4">Q4. What 3 characters did Kakashi mentor?</p>
+                    <input type="radio" name="q4" value="Goku, Vegeta and Gohan" id="choice-41">Goku, Vegeta and Gohan
+                    <input type="radio" name="q4" value="Ace, Sabo and Luffy" id="choice-42">Ace, Sabo and Luffy
+                    <input type="radio" name="q4" value="Naruto, Sasuke and Sakura" id="choice-43">Naruto, Sasuke and Sakura
+                </div>
+                <br>
+                <div>
+                    <p id="question5">Q5. What race is Goku?</p>
+                    <input type="radio" name="q5" value="Saiyan" id="choice-51">Saiyan
+                    <input type="radio" name="q5" value="Human" id="choice-52">Human
+                    <input type="radio" name="q5" value="Yato" id="choice-53">Yato
+                </div>
+                <br>
+                <div>
+                    <p id="question6">Q6. How many episodes did Goku Vs Frieza last?</p>
+                    <input type="radio" name="q6" value="18" id="choice-61">18
+                    <input type="radio" name="q6" value="19" id="choice-62">19
+                    <input type="radio" name="q6" value="20" id="choice-63">20
+                </div>
+                <br>
+                <div>
+                    <p id="question7">Q7. How many members are there in the Straw Hat Crew currently?</p>
+                    <input type="radio" name="q7" value="9" id="choice-71">9
+                    <input type="radio" name="q7" value="10" id="choice-72">10
+                    <input type="radio" name="q7" value="11" id="choice-73">11
+                </div>
+                <br>
+                <div>
+                    <p id="question8">Q8. What is Gintoki's full name?</p>
+                    <input type="radio" name="q8" value="Gintoki Sakata" id="choice-81">Gintoki Sakata
+                    <input type="radio" name="q8" value="Gintoki Hijikata" id="choice-82">Gintoki Hijikata
+                    <input type="radio" name="q8" value="Gintoki Shimaru" id="choice-83">Gintoki Shimaru
+                </div>
+                <br>
+                <div>
+                    <p id="question9">Q9. What clan does Kagura belong to?</p>
+                    <input type="radio" name="q9" value="Namekian" id="choice-91">Namekian
+                    <input type="radio" name="q9" value="Yato" id="choice-92">Yato
+                    <input type="radio" name="q9" value="Majin" id="choice-93">Majin
+                </div>
+                <br>
+                <div>
+                    <p id="question10">Q10. Who is Kagura's brother?</p>
+                    <input type="radio" name="q10" value="Kamui" id="choice-101">Kamui
+                    <input type="radio" name="q10" value="Umibouzu" id="choice-102">Umibouzu
+                    <input type="radio" name="q10" value="Katsura" id="choice-103">Katsura
+                </div> 
+                <br><br>
+                <button type="button" value="Submit" id="submit_quiz">Submit Quiz</button>
+                <button type="button" value="Restart" id="restart_quiz" onclick="restartQuiz()">Restart Quiz</button>
+            </form>
+        </div>    
+    </div>
+
+    <!-- Score: -->
+    <div class="score">
+        <p>You scored <span id="score"></span>  out of 20 (<span id="scorePercentage"></span>)</p>
+    </div>
+
+    <!-- Footer: -->
+    <div class="footer">
+        <a href="#">
+            <p>Back to top</p>
+        </a>
+    </div>
+
+    <!-- Javascript for quiz: -->
+    <script>
+        var countdown;
+        var startTime;
+        var endTime;
+        var timeTaken;
+        var difficultyChosen;
+        var difficulty_txt;
+
+        function revealQuiz() {
+        document.getElementById("quizBackground").style.visibility = 'visible';
+        startTime = new Date();
+        }
+
+        function restartQuiz() {
+            document.getElementById("restart_quiz").addEventListener("click", function(){
+                document.location.href="animeQuizPage.html";
+            })
+        }
+
+        function getRadioValue(radioArray) {
+            for (let i = 0; i < radioArray.length; i++) {
+                if (radioArray[i].checked) {
+                    return radioArray[i].value;
+                }
+            }
+            return "";
+        }
+
+        document.getElementById("submit_quiz").addEventListener("click", checkAnswers);
+        
+        function easyDifficulty(){
+            difficultyChosen = 60000;
+            difficulty_txt = "Easy";
+            document.getElementById("difficulty_selected").innerHTML = difficulty_txt;
+        }
+
+        function mediumDifficulty() {
+            difficultyChosen = 20000;
+            difficulty_txt = "Intermediate";
+            document.getElementById("difficulty_selected").innerHTML = difficulty_txt;
+        }
+
+        function hardDifficulty() {
+            difficultyChosen = 10000;
+            difficulty_txt = "Hard";
+            document.getElementById("difficulty_selected").innerHTML = difficulty_txt;
+        }
+
+        function startTimer() {
+            countdown = setTimeout("checkAnswers()", difficultyChosen);
+            startTime = new Date();
+        }
+
+
+        document.getElementById("submit_quiz").addEventListener("click", checkAnswers);
+        function checkAnswers() {
+            endTime = new Date();
+            timeTaken = (endTime - startTime)/1000;
+            var userName = document.getElementById("username").value;
+            var score = 0;
+            var scoreInPercentage = 0;
+            var usersAnswer1 = getRadioValue(document.getElementsByName("q1"));
+            var usersAnswer2 = getRadioValue(document.getElementsByName("q2"));
+            var usersAnswer3 = getRadioValue(document.getElementsByName("q3"));
+            var usersAnswer4 = getRadioValue(document.getElementsByName("q4"));
+            var usersAnswer5 = getRadioValue(document.getElementsByName("q5"));
+            var usersAnswer6 = getRadioValue(document.getElementsByName("q6"));
+            var usersAnswer7 = getRadioValue(document.getElementsByName("q7"));
+            var usersAnswer8 = getRadioValue(document.getElementsByName("q8"));
+            var usersAnswer9 = getRadioValue(document.getElementsByName("q9"));
+            var usersAnswer10 = getRadioValue(document.getElementsByName("q10"));
+
+            if (usersAnswer1 == "1999") {
+                document.getElementById("question1").style.backgroundColor = "green";
+                score = score + 2;
+            } else {
+                document.getElementById("question1").style.backgroundColor = "crimson";
+                score = score - 1;
+            }
+
+            if (usersAnswer2 == "Luffy") {
+                document.getElementById("question2").style.backgroundColor = "green";
+                score = score + 2;
+            } else {
+                document.getElementById("question2").style.backgroundColor = "crimson";
+                score = score - 1;
+            }
+
+            if (usersAnswer3 == "Nami") {
+                document.getElementById("question3").style.backgroundColor = "green";
+                score = score + 2;
+            } else {
+                document.getElementById("question3").style.backgroundColor = "crimson";
+                score = score - 1;
+            }
+
+            if (usersAnswer4 == "Naruto, Sasuke and Sakura") {
+                document.getElementById("question4").style.backgroundColor = "green";
+                score = score + 2;
+            } else {
+                document.getElementById("question4").style.backgroundColor = "crimson";
+                score = score - 1;
+            }
+
+            if (usersAnswer5 == "Saiyan") {
+                document.getElementById("question5").style.backgroundColor = "green";
+                score = score + 2;
+            } else {
+                document.getElementById("question5").style.backgroundColor = "crimson";
+                score = score - 1;
+            }
+
+            if (usersAnswer6 == "19") {
+                document.getElementById("question6").style.backgroundColor = "green";
+                score = score + 2;
+            } else {
+                document.getElementById("question6").style.backgroundColor = "crimson";
+                score = score - 1;
+            }
+
+            if (usersAnswer7 == "10") {
+                document.getElementById("question7").style.backgroundColor = "green";
+                score = score + 2;
+            } else {
+                document.getElementById("question7").style.backgroundColor = "crimson";
+                score = score - 1;
+            }
+
+            if (usersAnswer8 == "Gintoki Sakata") {
+                document.getElementById("question8").style.backgroundColor = "green";
+                score = score + 2;
+            } else {
+                document.getElementById("question8").style.backgroundColor = "crimson";
+                score = score - 1;
+            }
+
+            if (usersAnswer9 == "Yato") {
+                document.getElementById("question9").style.backgroundColor = "green";
+                score = score + 2;
+            } else {
+                document.getElementById("question9").style.backgroundColor = "crimson";
+                score = score - 1;
+            }
+
+            if (usersAnswer10 == "Kamui") {
+                document.getElementById("question10").style.backgroundColor = "green";
+                score = score + 2;
+            } else {
+                document.getElementById("question10").style.backgroundColor = "crimson";
+                score = score - 1;
+            }
+
+            if (score >= -10 && score <= 0) {
+                document.body.style.backgroundColor = "red";
+            } else if (score > 0 && score < 10) {
+                document.body.style.backgroundColor = "#FFBF00";
+            } else if (score >= 10 && score < 20) {
+                document.body.style.backgroundColor = "lightgreen";
+            } else {
+                document.body.style.backgroundColor = "green";
+            }
+
+            if (score < 0) {
+                score = 0;
+            }
+            
+            scoreInPercentage = score;
+            scoreInPercentage = ((scoreInPercentage / 20) * 100) + "%";
+
+            document.getElementById("score").innerHTML = score;
+            document.getElementById("scorePercentage").innerHTML = scoreInPercentage;
+
+            if (userName == "") {
+                userName = "Unknown";
+            }
+
+            alert("Dear " + userName + " you scored " + score + " out of 20 " + "(" + scoreInPercentage + ")" + "\nYou took " + timeTaken + " seconds.");
+            clearTimeout(countdown);
+        }
+    </script>
+</body>
+</html>
