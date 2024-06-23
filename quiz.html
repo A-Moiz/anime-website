@@ -190,17 +190,34 @@
         var startTime;
         var endTime;
         var timeTaken;
-        var difficultyChosen;
+        var difficultyChosen = null;
         var difficulty_txt;
 
+        // function revealQuiz() {
+        // // document.getElementById("quizBackground").style.visibility = 'visible';
+        // if (!difficultyChosen) {
+        //     alert("Please select a difficulty before starting the quiz.");
+        //     return;
+        // } else {
+        //     document.getElementById("quizBackground").style.display = 'block';
+        //     startTime = new Date();
+        // }
+        // }
+
         function revealQuiz() {
-        document.getElementById("quizBackground").style.visibility = 'visible';
-        startTime = new Date();
+            if (!difficultyChosen) {
+                alert("Please select a difficulty before starting the quiz.");
+                return;
+            }
+            document.getElementById("quizBackground").style.display = 'block';
+            startTime = new Date();
+            startTimer();
         }
 
         function restartQuiz() {
             document.getElementById("restart_quiz").addEventListener("click", function(){
-                document.location.href="animeQuizPage.html";
+                //document.location.href="animeQuizPage.html";
+                window.location.reload();
             })
         }
 
@@ -241,6 +258,7 @@
 
         document.getElementById("submit_quiz").addEventListener("click", checkAnswers);
         function checkAnswers() {
+            clearTimeout(countdown);
             endTime = new Date();
             timeTaken = (endTime - startTime)/1000;
             var userName = document.getElementById("username").value;

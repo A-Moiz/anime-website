@@ -245,7 +245,8 @@ header h1{
     background-size: cover;
     position: relative;
     height: 1070px;
-    visibility: hidden;
+    display: none;
+    /* visibility: hidden; */
 }
 
 .quizQuestions{
